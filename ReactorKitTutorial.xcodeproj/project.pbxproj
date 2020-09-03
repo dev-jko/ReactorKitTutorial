@@ -3,15 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		08D594EC2500F05C00944C9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D594EB2500F05C00944C9F /* AppDelegate.swift */; };
-		08D594F02500F05C00944C9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D594EF2500F05C00944C9F /* ViewController.swift */; };
+		08D594F02500F05C00944C9F /* GithubSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D594EF2500F05C00944C9F /* GithubSearchViewController.swift */; };
 		08D594F52500F05D00944C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08D594F42500F05D00944C9F /* Assets.xcassets */; };
 		08D594F82500F05D00944C9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08D594F62500F05D00944C9F /* LaunchScreen.storyboard */; };
 		08D595032500F05D00944C9F /* ReactorKitTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D595022500F05D00944C9F /* ReactorKitTutorialTests.swift */; };
+		08D5950E2500FFC400944C9F /* GithubSearchViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D5950D2500FFC400944C9F /* GithubSearchViewReactor.swift */; };
 		C1FD02388F347A8ECF1B0785 /* Pods_ReactorKitTutorialTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6528E771C50E7B1A40C116A6 /* Pods_ReactorKitTutorialTests.framework */; };
 		FFEF58FAC15FC6281761EFED /* Pods_ReactorKitTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB064D2FED57F1A426CFE84 /* Pods_ReactorKitTutorial.framework */; };
 /* End PBXBuildFile section */
@@ -29,13 +30,14 @@
 /* Begin PBXFileReference section */
 		08D594E82500F05C00944C9F /* ReactorKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D594EB2500F05C00944C9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		08D594EF2500F05C00944C9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		08D594EF2500F05C00944C9F /* GithubSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchViewController.swift; sourceTree = "<group>"; };
 		08D594F42500F05D00944C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08D594F72500F05D00944C9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08D594F92500F05D00944C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08D594FE2500F05D00944C9F /* ReactorKitTutorialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactorKitTutorialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D595022500F05D00944C9F /* ReactorKitTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorKitTutorialTests.swift; sourceTree = "<group>"; };
 		08D595042500F05D00944C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08D5950D2500FFC400944C9F /* GithubSearchViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchViewReactor.swift; sourceTree = "<group>"; };
 		269D72AD50C858BD85EEA394 /* Pods-ReactorKitTutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorKitTutorial.release.xcconfig"; path = "Target Support Files/Pods-ReactorKitTutorial/Pods-ReactorKitTutorial.release.xcconfig"; sourceTree = "<group>"; };
 		42E376268E8B5FBE324061CD /* Pods-ReactorKitTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorKitTutorial.debug.xcconfig"; path = "Target Support Files/Pods-ReactorKitTutorial/Pods-ReactorKitTutorial.debug.xcconfig"; sourceTree = "<group>"; };
 		56ECA7D2098D7C6BEB2EF35D /* Pods-ReactorKitTutorialTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorKitTutorialTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactorKitTutorialTests/Pods-ReactorKitTutorialTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				08D594EB2500F05C00944C9F /* AppDelegate.swift */,
-				08D594EF2500F05C00944C9F /* ViewController.swift */,
+				08D594EF2500F05C00944C9F /* GithubSearchViewController.swift */,
+				08D5950D2500FFC400944C9F /* GithubSearchViewReactor.swift */,
 				08D594F42500F05D00944C9F /* Assets.xcassets */,
 				08D594F62500F05D00944C9F /* LaunchScreen.storyboard */,
 				08D594F92500F05D00944C9F /* Info.plist */,
@@ -113,7 +116,6 @@
 				56ECA7D2098D7C6BEB2EF35D /* Pods-ReactorKitTutorialTests.debug.xcconfig */,
 				76DADA01ACDB46F471D397BC /* Pods-ReactorKitTutorialTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -293,7 +295,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08D594F02500F05C00944C9F /* ViewController.swift in Sources */,
+				08D5950E2500FFC400944C9F /* GithubSearchViewReactor.swift in Sources */,
+				08D594F02500F05C00944C9F /* GithubSearchViewController.swift in Sources */,
 				08D594EC2500F05C00944C9F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

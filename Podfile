@@ -8,6 +8,7 @@ target 'ReactorKitTutorial' do
   # Pods for ReactorKitTutorial
   pod 'SnapKit'
   pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'ReactorKit'
 
   target 'ReactorKitTutorialTests' do

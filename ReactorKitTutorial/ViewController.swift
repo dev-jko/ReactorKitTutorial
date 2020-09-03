@@ -7,15 +7,38 @@
 //
 
 import UIKit
+import SnapKit
+import ReactorKit
 
-class ViewController: UIViewController {
+class GithubSearchViewController: UIViewController {
 
+    private let searchBar: UISearchBar = UISearchBar()
+    private let tableView: UITableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .green
+        setUpLayout()
+        bindStyles()
     }
 
-
+    private func setUpLayout() {
+        view.addSubview(searchBar)
+        view.addSubview(tableView)
+        
+        searchBar.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom)
+        }
+    }
+    
+    private func bindStyles() {
+        tableView.backgroundColor = .white
+    }
 }
 
