@@ -52,7 +52,21 @@ class GithubSearchViewController: UIViewController, View {
     
     func bind(reactor: GithubSearchViewReactor) {
         searchBar.rx.text
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .map { Reactor.Action.updateQuery($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        tableView.rx.contentOffset
+            .filter ({ [weak self] offset in
+                guard
+                    let `self` = self,
+                    self.tableView.frame.height > 0
+                else { return false }
+                
+                return offset.y + self.tableView.frame.height >= self.tableView.contentSize.height - 100
+            })
+            .map { _ in Reactor.Action.loadNextPage }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
