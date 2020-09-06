@@ -73,7 +73,7 @@ class GithubSearchViewController: UIViewController, View {
         reactor.state
             .map { $0.repos }
             .bind(to: tableView.rx.items(cellIdentifier: "cell"), curriedArgument: { indexPath, repo, cell in
-                cell.textLabel?.text = repo
+                cell.textLabel?.text = repo.name
             })
             .disposed(by: disposeBag)
     }

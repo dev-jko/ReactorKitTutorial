@@ -17,14 +17,14 @@ final class GithubSearchViewReactor: Reactor {
     }
     
     enum Mutation {
-        case setRepos([String], nextPage: Int?)
+        case setRepos([GithubRepo], nextPage: Int?)
         case setQuery(String?)
-        case appendRepos([String], nextPage: Int?)
+        case appendRepos([GithubRepo], nextPage: Int?)
         case setLoadingNextPage(Bool)
     }
     
     struct State {
-        var repos: [String] = []
+        var repos: [GithubRepo] = []
         var query: String?
         var nextPage: Int?
         var isLoadingNextPage: Bool = false
@@ -92,20 +92,26 @@ final class GithubSearchViewReactor: Reactor {
         return URL(string: "https://api.github.com/search/repositories?q=\(query)&page=\(page)")
     }
     
-    private func search(query: String?, page: Int) -> Observable<(repos: [String], nextPage: Int?)> {
-        let emptyResult: ([String], Int?) = ([], nil)
+    private func search(query: String?, page: Int) -> Observable<(repos: [GithubRepo], nextPage: Int?)> {
+        let emptyResult: ([GithubRepo], Int?) = ([], nil)
         
         guard let url = url(query: query, page: page) else {
             return Observable.just(emptyResult)
         }
         
         return URLSession.shared.rx.json(url: url)
-            .map({ json -> ([String], Int?) in
+            .map({ json -> ([GithubRepo], Int?) in
                 guard
                     let dict = json as? [String: Any],
                     let items = dict["items"] as? [[String: Any]]
                 else { return emptyResult }
-                let repos = items.compactMap { $0["full_name"] as? String }
+                let repos = items.compactMap { item -> GithubRepo? in
+                    guard
+                        let name = item["full_name"] as? String,
+                        let star = item["stargazers_count"] as? Int
+                    else { return nil }
+                    return GithubRepo(name: name, stargazersCount: star)
+                }
                 let nextPage = repos.isEmpty ? nil : page + 1
                 return (repos, nextPage)
             })
